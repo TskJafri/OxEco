@@ -61,7 +61,7 @@ export default function PublicationsPage() {
               {events.map((event) => (
                 <li key={event}>
                   <strong>{event}</strong>
-                  <span>Details and schedules will be published on the news page.</span>
+                  <span>Details and schedules are maintained through the publications and project updates channels.</span>
                 </li>
               ))}
             </ul>

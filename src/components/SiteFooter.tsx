@@ -3,12 +3,12 @@ import Link from "next/link";
 const footerLinks = {
   resources: [
     { label: "GitHub Organization", href: "https://github.com/" },
-    { label: "Documentation", href: "https://example.com/docs" },
-    { label: "Downloads", href: "/downloads" },
+    { label: "Publications", href: "/about/publications" },
+    { label: "http://oxdna.org", href: "http://oxdna.org" },
   ],
   community: [
-    { label: "FAQ", href: "/help/faq" },
-    { label: "Community Links", href: "/help/community-links" },
+    { label: "Tutorials", href: "/tutorials" },
+    { label: "Data & Tools", href: "/data-tools" },
     { label: "Contact Us", href: "/contact-us" },
   ],
 };

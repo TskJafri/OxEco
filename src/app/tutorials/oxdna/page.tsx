@@ -1,6 +1,6 @@
 import { PageIntro } from "@/components/PageIntro";
 
-const tutorials = [
+const documentationTopics = [
   "Installing and validating the oxDNA environment",
   "Running your first simulation from sample input",
   "Interpreting trajectory outputs and sanity checks",
@@ -11,22 +11,29 @@ export default function OxDnaTutorialsPage() {
   return (
     <>
       <PageIntro
-        title="OxDNA Tutorials"
-        description="Step-by-step materials for simulation setup, reproducibility checks, and post-processing."
+        title="OxDNA Documentation"
+        description="Reference-oriented materials for simulation setup, reproducibility checks, and post-processing workflows."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Tutorials", href: "/tutorials" },
-          { label: "OxDNA Tutorials" },
+          { label: "OxDNA Documentation" },
         ]}
       />
       <section className="section">
         <div className="container card-grid">
-          {tutorials.map((topic) => (
+          {documentationTopics.map((topic) => (
             <article key={topic} className="card">
               <h3>{topic}</h3>
               <p>Includes command examples, expected outputs, and interpretation notes.</p>
             </article>
           ))}
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <a href="http://oxdna.org" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            Visit Official Documentation
+          </a>
         </div>
       </section>
     </>

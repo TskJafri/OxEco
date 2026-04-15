@@ -1,7 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { DocIcon, DownloadIcon, ToolIcon } from "@/components/Icons";
+import { DocIcon, ToolIcon } from "@/components/Icons";
 import { PageIntro } from "@/components/PageIntro";
+
+const tools = [
+  { label: "Nanobase", href: "/data-tools/nanobase" },
+  { label: "Tacoxdna", href: "/data-tools/tacoxdna" },
+  { label: "OxDNA", href: "/data-tools/oxdna" },
+  { label: "ppview", href: "/data-tools/ppview" },
+  { label: "cogli2", href: "/data-tools/cogli2" },
+];
 
 export default function DataToolsPage() {
   return (
@@ -17,29 +25,37 @@ export default function DataToolsPage() {
           <article className="card">
             <div className="icon-row">
               <ToolIcon />
-              <span>Simulation</span>
+              <span>Directory</span>
             </div>
-            <h3>oxDNA Engine</h3>
-            <p>Run sequence-aware simulations with reproducible settings and benchmark presets.</p>
-            <Link href="/downloads" className="btn btn-primary">Download</Link>
-          </article>
-          <article className="card">
-            <div className="icon-row">
-              <DownloadIcon />
-              <span>Analysis</span>
-            </div>
-            <h3>Analysis Scripts</h3>
-            <p>Post-processing scripts for trajectories, structural metrics, and reporting outputs.</p>
-            <a href="https://example.com/scripts" target="_blank" rel="noopener noreferrer" className="btn btn-link">Open Script Index</a>
+            <h3>Data & Tools Directory</h3>
+            <p>Browse all current simulation and analysis resources from one index.</p>
+            <ul className="meta-list">
+              {tools.map((tool) => (
+                <li key={tool.label}>
+                  <strong>
+                    <Link href={tool.href}>{tool.label}</Link>
+                  </strong>
+                </li>
+              ))}
+            </ul>
           </article>
           <article className="card">
             <div className="icon-row">
               <DocIcon />
-              <span>Reference</span>
+              <span>Documentation</span>
             </div>
-            <h3>API and Model Docs</h3>
-            <p>Technical documentation for model assumptions, command-line usage, and APIs.</p>
-            <a href="https://example.com/api" target="_blank" rel="noopener noreferrer" className="btn btn-link">Open API Docs</a>
+            <h3>OxDNA Documentation</h3>
+            <p>Technical references for model assumptions, command-line usage, and workflows.</p>
+            <Link href="/tutorials/oxdna" className="btn btn-link">Open Documentation Hub</Link>
+          </article>
+          <article className="card">
+            <div className="icon-row">
+              <DocIcon />
+              <span>Official Site</span>
+            </div>
+            <h3>oxdna.org</h3>
+            <p>Visit the official website for project updates and external resources.</p>
+            <a href="http://oxdna.org" target="_blank" rel="noopener noreferrer" className="btn btn-link">Open http://oxdna.org</a>
           </article>
         </div>
       </section>

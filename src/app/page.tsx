@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
-import { DocIcon, DownloadIcon, ToolIcon } from "@/components/Icons";
+import { DocIcon, ToolIcon } from "@/components/Icons";
+import { OxViewEmbed } from "@/components/OxViewEmbed";
 
 export default function Home() {
   const releases = [
@@ -30,12 +30,12 @@ export default function Home() {
             <h1>The oxDNA Research Ecosystem</h1>
             <p>
               A shared workspace for DNA nanotechnology simulation, visualization, and
-              reproducible methods. Explore tools, release notes, tutorials, and citation
+              reproducible methods. Explore tools, publications, tutorials, and citation
               guidance in one coherent research portal.
             </p>
             <div className="button-row" style={{ marginTop: "1.4rem" }}>
-              <Link href="/downloads" className="btn btn-cta">
-                Download Tools
+              <Link href="/about/publications" className="btn btn-cta">
+                View Publications
               </Link>
               <Link href="/data-tools" className="btn btn-primary">
                 Explore Data & Tools
@@ -43,13 +43,7 @@ export default function Home() {
             </div>
           </div>
           <figure className="hero-media">
-            <Image
-              src="/references/home.png"
-              alt="Reference layout showing oxDNA ecosystem homepage"
-              width={1162}
-              height={768}
-              priority
-            />
+            <OxViewEmbed />
           </figure>
         </div>
       </section>
@@ -65,25 +59,25 @@ export default function Home() {
               </div>
               <h3>oxDNA Simulation Suite</h3>
               <p>Run large-scale DNA and RNA coarse-grained simulations with reproducible inputs.</p>
-              <Link href="/data-tools" className="btn btn-link">Launch Tool</Link>
+              <Link href="/data-tools/oxdna" className="btn btn-link">Open oxDNA</Link>
             </article>
             <article className="card">
               <div className="icon-row">
                 <DocIcon />
-                <span>Documentation</span>
+                <span>Tools</span>
               </div>
-              <h3>Developer and User Docs</h3>
-              <p>Access API references, model assumptions, and reproducibility notes.</p>
-              <a className="btn btn-link" href="https://example.com/docs" target="_blank" rel="noopener noreferrer">Open Documentation</a>
+              <h3>Data & Tools Directory</h3>
+              <p>Open Nanobase, Tacoxdna, OxDNA, ppview, and cogli2 from one centralized hub.</p>
+              <Link href="/data-tools" className="btn btn-link">Browse Data & Tools</Link>
             </article>
             <article className="card">
               <div className="icon-row">
-                <DownloadIcon />
-                <span>Downloads</span>
+                <DocIcon />
+                <span>Publications</span>
               </div>
-              <h3>Binary and Source Releases</h3>
-              <p>Choose platform-specific builds, source distributions, and legacy versions.</p>
-              <Link href="/downloads" className="btn btn-link">Go to Downloads</Link>
+              <h3>Publications and Citations</h3>
+              <p>Review papers, software citations, and reproducibility references for oxDNA research.</p>
+              <Link href="/about/publications" className="btn btn-link">Open Publications</Link>
             </article>
           </div>
         </div>
@@ -92,7 +86,7 @@ export default function Home() {
       <section className="section">
         <div className="container split">
           <div>
-            <p className="eyebrow">Latest Releases</p>
+            <p className="eyebrow">Latest Updates</p>
             <ul className="meta-list">
               {releases.map((release) => (
                 <li key={release.version}>
@@ -104,8 +98,8 @@ export default function Home() {
               ))}
             </ul>
             <div className="button-row" style={{ marginTop: "1rem" }}>
-              <Link href="/news/release-notes" className="btn btn-primary">
-                Full Release Notes
+              <Link href="/about/publications" className="btn btn-primary">
+                See Publication Updates
               </Link>
             </div>
           </div>
@@ -121,12 +115,12 @@ export default function Home() {
               <li>
                 <strong>Documentation</strong>
                 <span>
-                  <a href="https://example.com/docs" target="_blank" rel="noopener noreferrer">Setup and model reference guides</a>
+                  <Link href="/tutorials/oxdna">Setup and model reference guides</Link>
                 </span>
               </li>
               <li>
-                <strong>Downloads</strong>
-                <span><Link href="/downloads">Versioned installers and source archives</Link></span>
+                <strong>Publications</strong>
+                <span><Link href="/about/publications">Papers and citation references</Link></span>
               </li>
             </ul>
           </aside>
@@ -135,23 +129,37 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Member Groups</p>
-          <div className="card-grid">
+          <p className="eyebrow">Members</p>
+          <div className="card-grid cols-3">
             <article className="card">
-              <h3>Group A · Simulation Methods</h3>
-              <p>
-                Focused on model validation, performance studies, and benchmarking for
-                DNA nanotechnology simulations.
-              </p>
-              <Link href="/members/group-a" className="btn btn-link">View Group A</Link>
+              <h3>Petr Sulc&apos;s</h3>
+              <p>Coarse-grained DNA modeling, simulation methods, and computational validation workflows.</p>
+              <Link href="/members/petr-sulc" className="btn btn-link">View Profile</Link>
             </article>
             <article className="card">
-              <h3>Group B · Applications and Workflows</h3>
-              <p>
-                Focused on analysis pipelines, educational workflows, and open-source
-                community collaboration.
-              </p>
-              <Link href="/members/group-b" className="btn btn-link">View Group B</Link>
+              <h3>Lorenzo Rovigatti&apos;s</h3>
+              <p>Simulation software architecture, high-performance workflows, and community tooling.</p>
+              <Link href="/members/lorenzo-rovigatti" className="btn btn-link">View Profile</Link>
+            </article>
+            <article className="card">
+              <h3>Grigory Tikhomirov</h3>
+              <p>DNA origami design studies, model benchmarking, and multiscale simulation strategies.</p>
+              <Link href="/members/grigory-tikhomirov" className="btn btn-link">View Profile</Link>
+            </article>
+            <article className="card">
+              <h3>Tom Ouldridge</h3>
+              <p>Molecular programming theory, kinetics models, and robust pathway analysis.</p>
+              <Link href="/members/tom-ouldridge" className="btn btn-link">View Profile</Link>
+            </article>
+            <article className="card">
+              <h3>Carlos Castros</h3>
+              <p>Applied simulation pipelines and cross-lab reproducibility for DNA nanotechnology.</p>
+              <Link href="/members/carlos-castros" className="btn btn-link">View Profile</Link>
+            </article>
+            <article className="card">
+              <h3>Megan Engel</h3>
+              <p>Education-facing tutorials, onboarding material, and community documentation quality.</p>
+              <Link href="/members/megan-engel" className="btn btn-link">View Profile</Link>
             </article>
           </div>
         </div>

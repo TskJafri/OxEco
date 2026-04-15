@@ -42,3 +42,4 @@ next-env.d.ts
 
 # local agentic files
 AGENTS.md
+.site-architecture.md

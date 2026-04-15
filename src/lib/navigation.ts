@@ -1,6 +1,7 @@
 export type NavChild = {
   label: string;
   href: string;
+  external?: boolean;
 };
 
 export type NavItem = {
@@ -15,24 +16,24 @@ export const navigation: NavItem[] = [
   {
     label: "Data & Tools",
     children: [
-      { label: "Overview", href: "/data-tools" },
-      { label: "Downloads", href: "/downloads" },
+      { label: "Nanobase", href: "/data-tools/nanobase" },
+      { label: "Tacoxdna", href: "/data-tools/tacoxdna" },
+      { label: "OxDNA", href: "/data-tools/oxdna" },
+      { label: "ppview", href: "/data-tools/ppview" },
+      { label: "cogli2", href: "/data-tools/cogli2" },
+      { label: "http://oxdna.org", href: "http://oxdna.org", external: true },
     ],
   },
-  { label: "Downloads", href: "/downloads" },
-  { label: "API", href: "https://example.com/api", external: true },
+  { label: "Publications", href: "/about/publications" },
   {
     label: "Members",
     children: [
-      { label: "Group A", href: "/members/group-a" },
-      { label: "Group B", href: "/members/group-b" },
-    ],
-  },
-  {
-    label: "News",
-    children: [
-      { label: "Release Notes", href: "/news/release-notes" },
-      { label: "News & Events", href: "/news/news-events" },
+      { label: "Petr Sulc's", href: "/members/petr-sulc" },
+      { label: "Lorenzo Rovigatti's", href: "/members/lorenzo-rovigatti" },
+      { label: "Grigory Tikhomirov", href: "/members/grigory-tikhomirov" },
+      { label: "Tom Ouldridge", href: "/members/tom-ouldridge" },
+      { label: "Carlos Castros", href: "/members/carlos-castros" },
+      { label: "Megan Engel", href: "/members/megan-engel" },
     ],
   },
   {
@@ -40,21 +41,14 @@ export const navigation: NavItem[] = [
     children: [
       { label: "About Us", href: "/about/about-us" },
       { label: "Funding", href: "/about/funding" },
-      { label: "Publications", href: "/about/publications" },
-    ],
-  },
-  {
-    label: "Help",
-    children: [
-      { label: "FAQ", href: "/help/faq" },
-      { label: "Community Links", href: "/help/community-links" },
     ],
   },
   {
     label: "Tutorials",
     children: [
-      { label: "OxDNA Tutorials", href: "/tutorials/oxdna" },
-      { label: "OxView Tutorials", href: "/tutorials/oxview" },
+      { label: "OxDNA to Documentation", href: "/tutorials/oxdna" },
+      { label: "OxView (YouTube)", href: "/tutorials/oxview" },
+      { label: "How We Simulate DNA Origami", href: "/tutorials/how-we-simulate-dna-origami" },
     ],
   },
 ];

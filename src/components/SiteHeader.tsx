@@ -20,7 +20,13 @@ function DesktopNavigation() {
               <ul className="dropdown" role="list">
                 {item.children.map((child) => (
                   <li key={child.label}>
-                    <Link href={child.href}>{child.label}</Link>
+                    {child.external ? (
+                      <a href={child.href} target="_blank" rel="noopener noreferrer">
+                        {child.label}
+                      </a>
+                    ) : (
+                      <Link href={child.href}>{child.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -55,7 +61,13 @@ function MobileNavigation() {
                 <ul role="list">
                   {item.children.map((child) => (
                     <li key={child.label}>
-                      <Link href={child.href}>{child.label}</Link>
+                      {child.external ? (
+                        <a href={child.href} target="_blank" rel="noopener noreferrer">
+                          {child.label}
+                        </a>
+                      ) : (
+                        <Link href={child.href}>{child.label}</Link>
+                      )}
                     </li>
                   ))}
                 </ul>

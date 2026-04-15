@@ -7,21 +7,26 @@ export default function TutorialsPage() {
     <>
       <PageIntro
         title="Tutorials"
-        description="Guided educational materials for running simulations and visualizing results with oxDNA and oxView."
+        description="Guided educational materials for oxDNA documentation, OxView YouTube walkthroughs, and DNA origami simulation methods."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tutorials" }]}
       />
 
       <section className="section">
-        <div className="container card-grid">
+        <div className="container card-grid cols-3">
           <article className="card">
-            <h3>OxDNA Tutorials</h3>
-            <p>Foundational and advanced tutorials covering setup, execution, and analysis workflows.</p>
-            <Link href="/tutorials/oxdna" className="btn btn-primary">Open OxDNA Tutorials</Link>
+            <h3>OxDNA to Documentation</h3>
+            <p>Core setup and reference documentation for simulation workflows and model assumptions.</p>
+            <Link href="/tutorials/oxdna" className="btn btn-primary">Open Documentation</Link>
           </article>
           <article className="card">
-            <h3>OxView Tutorials</h3>
-            <p>Visualization-focused tutorials for structural inspection and presentation-ready figures.</p>
-            <Link href="/tutorials/oxview" className="btn btn-primary">Open OxView Tutorials</Link>
+            <h3>OxView for YouTube</h3>
+            <p>Video-oriented walkthroughs focused on visualizing trajectories and communicating results.</p>
+            <Link href="/tutorials/oxview" className="btn btn-primary">Open OxView YouTube Page</Link>
+          </article>
+          <article className="card">
+            <h3>How We Simulate DNA Origami</h3>
+            <p>A practical process guide from parameter setup through trajectory analysis and reporting.</p>
+            <Link href="/tutorials/how-we-simulate-dna-origami" className="btn btn-primary">Open Tutorial</Link>
           </article>
         </div>
       </section>
