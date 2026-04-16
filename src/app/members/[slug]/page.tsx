@@ -13,7 +13,7 @@ type MemberProfile = {
 
 const memberProfiles = {
   "petr-sulc": {
-    name: "Petr Sulc's",
+    name: "Petr Sulc",
     description: "Coarse-grained DNA model development, simulation methods, and reproducibility-focused workflows.",
     focus: [
       {
@@ -31,7 +31,7 @@ const memberProfiles = {
     ],
   },
   "lorenzo-rovigatti": {
-    name: "Lorenzo Rovigatti's",
+    name: "Lorenzo Rovigatti",
     description: "Simulation software architecture, performance optimization, and toolchain reliability.",
     focus: [
       {
