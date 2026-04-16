@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DocIcon, ToolIcon } from "@/components/Icons";
+import { HomePrimerRail } from "@/components/HomePrimerRail";
 import { OxViewEmbed } from "@/components/OxViewEmbed";
-import { PrimerSectionNav } from "../components/PrimerSectionNav";
 
 const allAtomTradeoffs = [
   {
@@ -118,7 +118,7 @@ const primerHighlights = [
 
 export default function Home() {
   return (
-    <>
+    <div className="home-page">
       <section className="section">
         <div className="container hero">
           <div>
@@ -252,9 +252,7 @@ export default function Home() {
             </ul>
           </article>
 
-          <aside className="primer-rail">
-            <PrimerSectionNav sections={primerHighlights} />
-          </aside>
+          <HomePrimerRail sections={primerHighlights} />
         </div>
       </section>
 
@@ -292,6 +290,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
