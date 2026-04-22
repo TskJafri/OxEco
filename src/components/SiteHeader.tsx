@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navigation } from "@/lib/navigation";
 
 function LogoMark() {
@@ -10,6 +13,16 @@ function LogoMark() {
 }
 
 function DesktopNavigation() {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <ul className="desktop-nav" role="list">
       {navigation.map((item) => (
@@ -37,7 +50,7 @@ function DesktopNavigation() {
                 {item.label}
               </a>
             ) : (
-              <Link href={item.href} className="nav-link">
+              <Link href={item.href} className={`nav-link${isActive(item.href) ? " is-active" : ""}`}>
                 {item.label}
               </Link>
             )

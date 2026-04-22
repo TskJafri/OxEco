@@ -186,7 +186,7 @@ a {
   color: var(--color-primary-strong);
 }
 
-.nav-item:first-child > .nav-link {
+.nav-link.is-active {
   color: var(--color-primary-strong);
   font-weight: 700;
   border-bottom: 2px solid var(--color-primary-strong);

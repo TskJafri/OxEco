@@ -16,21 +16,21 @@ export const navigation: NavItem[] = [
   {
     label: "Data & Tools",
     children: [
-      { label: "Nanobase", href: "/data-tools/nanobase" },
+      { label: "Nanobase", href: "https://nanobase.org/", external: true },
       { label: "Tacoxdna", href: "/data-tools/tacoxdna" },
-      { label: "OxDNA", href: "/data-tools/oxdna" },
+      { label: "OxDNA", href: "https://oxdna.org/", external: true },
       { label: "ppview", href: "/data-tools/ppview" },
       { label: "cogli2", href: "/data-tools/cogli2" },
-      { label: "http://oxdna.org", href: "http://oxdna.org", external: true },
     ],
   },
   { label: "Publications", href: "/about/publications" },
+  { label: "Experiments", href: "/experiments" },
   {
     label: "Members",
     children: [
-      { label: "Petr Sulc's", href: "/members/petr-sulc" },
-      { label: "Lorenzo Rovigatti's", href: "/members/lorenzo-rovigatti" },
+      { label: "Petr Sulc", href: "/members/petr-sulc" },
       { label: "Grigory Tikhomirov", href: "/members/grigory-tikhomirov" },
+      { label: "Lorenzo Rovigatti", href: "/members/lorenzo-rovigatti" },
       { label: "Tom Ouldridge", href: "/members/tom-ouldridge" },
       { label: "Carlos Castros", href: "/members/carlos-castros" },
       { label: "Megan Engel", href: "/members/megan-engel" },
