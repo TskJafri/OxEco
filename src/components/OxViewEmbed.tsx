@@ -32,6 +32,7 @@ export function OxViewEmbed() {
       style={{ width: "100%", minHeight: "440px", border: 0 }}
       loading="eager"
       allow="fullscreen"
+      suppressHydrationWarning
     />
   );
 }

@@ -25,6 +25,7 @@ export const navigation: NavItem[] = [
   },
   { label: "Publications", href: "/about/publications" },
   { label: "Experiments", href: "/experiments" },
+  { label: "Challenges", href: "/challenges" },
   {
     label: "Members",
     children: [
