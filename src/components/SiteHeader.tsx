@@ -2,13 +2,54 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation } from "@/lib/navigation";
+import { navigation, type NavChild } from "@/lib/navigation";
 
 function LogoMark() {
   return (
     <div className="logo-mark" aria-label="oxDNA logo placeholder">
       <span>DNA</span>
     </div>
+  );
+}
+
+function ChildLink({ child }: { child: NavChild }) {
+  if (!child.href) {
+    return <span className="dropdown-label">{child.label}</span>;
+  }
+  if (child.external) {
+    return (
+      <a href={child.href} target="_blank" rel="noopener noreferrer">
+        {child.label}
+      </a>
+    );
+  }
+  return <Link href={child.href}>{child.label}</Link>;
+}
+
+function DropdownItem({ child }: { child: NavChild }) {
+  if (child.children && child.children.length > 0) {
+    return (
+      <li className="dropdown-item has-flyout">
+        <span className="dropdown-trigger">
+          {child.label}
+          <span aria-hidden="true" className="dropdown-caret">
+            ›
+          </span>
+        </span>
+        <ul className="dropdown dropdown-flyout" role="list">
+          {child.children.map((grandchild) => (
+            <li key={grandchild.label} className="dropdown-item">
+              <ChildLink child={grandchild} />
+            </li>
+          ))}
+        </ul>
+      </li>
+    );
+  }
+  return (
+    <li className="dropdown-item">
+      <ChildLink child={child} />
+    </li>
   );
 }
 
@@ -29,18 +70,19 @@ function DesktopNavigation() {
         <li key={item.label} className="nav-item">
           {item.children ? (
             <>
-              <span className="nav-trigger">{item.label}</span>
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  className={`nav-trigger${isActive(item.href) ? " is-active" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="nav-trigger">{item.label}</span>
+              )}
               <ul className="dropdown" role="list">
                 {item.children.map((child) => (
-                  <li key={child.label}>
-                    {child.external ? (
-                      <a href={child.href} target="_blank" rel="noopener noreferrer">
-                        {child.label}
-                      </a>
-                    ) : (
-                      <Link href={child.href}>{child.label}</Link>
-                    )}
-                  </li>
+                  <DropdownItem key={child.label} child={child} />
                 ))}
               </ul>
             </>
@@ -61,6 +103,38 @@ function DesktopNavigation() {
   );
 }
 
+function MobileChildLink({ child }: { child: NavChild }) {
+  if (!child.href) {
+    return <span>{child.label}</span>;
+  }
+  if (child.external) {
+    return (
+      <a href={child.href} target="_blank" rel="noopener noreferrer">
+        {child.label}
+      </a>
+    );
+  }
+  return <Link href={child.href}>{child.label}</Link>;
+}
+
+function MobileChild({ child }: { child: NavChild }) {
+  if (child.children && child.children.length > 0) {
+    return (
+      <details className="mobile-subitem">
+        <summary>{child.label}</summary>
+        <ul role="list">
+          {child.children.map((grandchild) => (
+            <li key={grandchild.label}>
+              <MobileChildLink child={grandchild} />
+            </li>
+          ))}
+        </ul>
+      </details>
+    );
+  }
+  return <MobileChildLink child={child} />;
+}
+
 function MobileNavigation() {
   return (
     <details className="mobile-nav-wrap">
@@ -74,13 +148,7 @@ function MobileNavigation() {
                 <ul role="list">
                   {item.children.map((child) => (
                     <li key={child.label}>
-                      {child.external ? (
-                        <a href={child.href} target="_blank" rel="noopener noreferrer">
-                          {child.label}
-                        </a>
-                      ) : (
-                        <Link href={child.href}>{child.label}</Link>
-                      )}
+                      <MobileChild child={child} />
                     </li>
                   ))}
                 </ul>

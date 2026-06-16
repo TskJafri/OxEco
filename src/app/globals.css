@@ -205,7 +205,7 @@ a {
   display: none;
 }
 
-.nav-item:hover .dropdown {
+.nav-item:hover > .dropdown {
   display: block;
 }
 
@@ -1094,4 +1094,485 @@ a {
     margin-inline: 0;
     width: 100%;
   }
+}
+
+
+/* ============================
+   Nested dropdown side-flyouts
+   ============================ */
+
+.dropdown {
+  z-index: 50;
+}
+
+.dropdown-item {
+  list-style: none;
+}
+
+.dropdown-item.has-flyout {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  cursor: default;
+  color: var(--color-text);
+}
+
+.dropdown-item.has-flyout:hover > .dropdown-trigger {
+  background: var(--color-surface);
+  color: var(--color-primary-strong);
+}
+
+.dropdown-caret {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-text-muted, var(--color-text));
+  opacity: 0.7;
+}
+
+.dropdown-flyout {
+  position: absolute;
+  top: -0.55rem;
+  left: 100%;
+  margin-left: 0.25rem;
+  min-width: 14rem;
+  display: none;
+}
+
+.dropdown-item.has-flyout:hover > .dropdown-flyout,
+.dropdown-item.has-flyout:focus-within > .dropdown-flyout {
+  display: block;
+}
+
+.dropdown-label {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+/* ============================
+   Mobile sub-items (nested)
+   ============================ */
+
+.mobile-subitem {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.mobile-subitem > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding-block: 0.3rem;
+}
+
+.mobile-subitem > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-subitem > ul {
+  list-style: none;
+  margin-top: 0.3rem;
+  padding-left: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ============================
+   Experiments article + index
+   ============================ */
+
+.experiments-article {
+  max-width: 60rem;
+}
+
+.experiments-article .prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.experiments-article .prose p {
+  margin: 0;
+}
+
+.experiments-article .prose h2 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.experiments-inline-link {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.experiments-inline-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.references-heading {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.references-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.references-list li::marker {
+  color: var(--color-primary-strong);
+  font-weight: 600;
+}
+
+.experiments-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-md);
+}
+
+.experiments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.experiments-table th,
+.experiments-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-outline);
+}
+
+.experiments-table thead th {
+  background: var(--color-surface);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.experiments-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.experiments-index-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.experiments-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.experiments-index-group h3 {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  color: var(--color-text-muted, var(--color-text));
+}
+
+.experiments-index-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.experiments-index-group a {
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.experiments-index-group a:hover {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* ============================
+   Experiments shell + right rail
+   ============================ */
+
+.experiments-shell-grid {
+  display: block;
+}
+
+.experiments-shell-main {
+  min-width: 0;
+}
+
+.experiments-rail {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .experiments-shell-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 22ch;
+    column-gap: clamp(1.5rem, 2.5vw, 3rem);
+    align-items: start;
+    padding-inline-end: var(--page-gutter);
+  }
+
+  .experiments-rail {
+    display: block;
+    position: sticky;
+    top: 5.5rem;
+    align-self: start;
+    padding: 0.25rem 0 1.5rem 0;
+    background: transparent;
+  }
+
+  .experiments-rail-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.05rem;
+  }
+
+  .experiments-rail-title {
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-primary-strong);
+  }
+
+  .experiments-rail-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experiments-rail-main {
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--color-outline);
+  }
+
+  .experiments-rail-main-link {
+    display: block;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #9aa2af;
+    transition: color 160ms ease;
+  }
+
+  .experiments-rail-main-link:hover {
+    color: var(--color-text);
+  }
+
+  .experiments-rail-main-link.is-active {
+    color: var(--color-primary-strong);
+  }
+
+  .experiments-rail-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .experiments-rail-group-summary {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0.1rem 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+  }
+
+  .experiments-rail-group-summary:hover .experiments-rail-group-title,
+  .experiments-rail-group-summary:hover .experiments-rail-caret {
+    color: var(--color-text);
+  }
+
+  .experiments-rail-group-summary:focus-visible {
+    outline: 2px solid var(--color-primary-strong);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .experiments-rail-group-title {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .experiments-rail-caret {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 0.7rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+    transform: rotate(0deg);
+    transition: transform 160ms ease;
+  }
+
+  .experiments-rail-caret.is-open {
+    transform: rotate(90deg);
+  }
+
+  .experiments-rail-leaves {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .experiments-rail-link {
+    display: block;
+    padding: 0;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: #9aa2af;
+    transition: color 160ms ease;
+  }
+
+  .experiments-rail-link:hover {
+    color: var(--color-text);
+  }
+
+  .experiments-rail-link.is-active {
+    color: var(--color-primary-strong);
+    font-weight: 600;
+  }
+}
+
+
+/* ============================
+   Experiments article rich blocks
+   ============================ */
+
+.experiments-article .prose strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.experiments-article .prose .experiments-subheading {
+  margin-top: 1.25rem;
+  margin-bottom: -0.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+.experiments-article .prose .experiments-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.experiments-article .prose .experiments-list > li {
+  padding-left: 0.25rem;
+}
+
+.experiments-article .prose .experiments-ol > li::marker {
+  color: var(--color-primary-strong);
+  font-weight: 600;
+}
+
+.experiments-article .prose .experiments-ul {
+  list-style: disc;
+}
+
+.experiments-article .prose .experiments-ul > li::marker {
+  color: var(--color-primary-strong);
+}
+
+
+/* ============================
+   Inline citation markers
+   ============================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.experiments-article .prose .citation-marker {
+  display: inline;
+  font-size: 0.72em;
+  line-height: 0;
+  vertical-align: super;
+  color: var(--color-primary-strong);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-inline: 0.05em;
+}
+
+.experiments-article .prose .citation-marker a {
+  color: inherit;
+  text-decoration: none;
+  padding-inline: 0.05em;
+}
+
+.experiments-article .prose .citation-marker a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.references-list li {
+  scroll-margin-top: 6rem;
+  transition: background 240ms ease;
+  border-radius: var(--radius-sm);
+  padding-inline: 0.35rem;
+  margin-inline: -0.35rem;
+}
+
+.references-list li:target {
+  background: var(--color-surface);
 }
