@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ChallengesRail, type RailGroup } from "@/components/ChallengesRail";
 import { PageIntro } from "@/components/PageIntro";
+import { withBasePath } from "@/lib/asset-path";
 
 const railGroups: RailGroup[] = [
   {
@@ -38,7 +39,7 @@ function ChallengeImage({
 
   return (
     <figure className="challenge-image">
-      <Image src={src} alt={alt ?? ""} width={width} height={height} />
+      <Image src={withBasePath(src)} alt={alt ?? ""} width={width} height={height} />
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
   );
@@ -127,7 +128,7 @@ export default function ChallengesPage() {
             <div className="challenge-image-row">
               <figure className="challenge-image">
                 <Image
-                  src="/challenges/img2_AFM.jpg"
+                  src={withBasePath("/challenges/img2_AFM.jpg")}
                   alt="AFM image example 2"
                   width={298}
                   height={301}
@@ -135,7 +136,7 @@ export default function ChallengesPage() {
               </figure>
               <figure className="challenge-image">
                 <Image
-                  src="/challenges/img3_AFM.png"
+                  src={withBasePath("/challenges/img3_AFM.png")}
                   alt="AFM image example 3"
                   width={45}
                   height={42}
@@ -143,7 +144,7 @@ export default function ChallengesPage() {
               </figure>
               <figure className="challenge-image">
                 <Image
-                  src="/challenges/img4_AFM.png"
+                  src={withBasePath("/challenges/img4_AFM.png")}
                   alt="AFM image example 4"
                   width={424}
                   height={284}

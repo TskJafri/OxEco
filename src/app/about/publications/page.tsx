@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
+import { withBasePath } from "@/lib/asset-path";
 
 const papers = [
   {
@@ -68,7 +69,7 @@ export default function PublicationsPage() {
           </div>
           <div className="hero-media">
             <Image
-              src="/references/publications.png"
+              src={withBasePath("/references/publications.png")}
               alt="Reference screenshot for publications layout"
               width={1162}
               height={768}

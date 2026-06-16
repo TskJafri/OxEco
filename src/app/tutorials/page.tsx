@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
+import { withBasePath } from "@/lib/asset-path";
 
 export default function TutorialsPage() {
   return (
@@ -34,7 +35,7 @@ export default function TutorialsPage() {
       <section className="section">
         <div className="container hero-media">
           <Image
-            src="/references/tutorials.png"
+            src={withBasePath("/references/tutorials.png")}
             alt="Reference screenshot for tutorial page layout"
             width={1162}
             height={768}

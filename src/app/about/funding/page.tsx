@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
+import { withBasePath } from "@/lib/asset-path";
 
 const partners = [
   "Academic Grants Consortium",
@@ -39,7 +40,7 @@ export default function FundingPage() {
           </div>
           <div className="hero-media">
             <Image
-              src="/references/about-funding.png"
+              src={withBasePath("/references/about-funding.png")}
               alt="Reference screenshot for funding and tools page design"
               width={1162}
               height={768}

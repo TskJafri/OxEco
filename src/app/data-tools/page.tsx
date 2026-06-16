@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DocIcon, ToolIcon } from "@/components/Icons";
 import { PageIntro } from "@/components/PageIntro";
+import { withBasePath } from "@/lib/asset-path";
 
 const tools = [
   { label: "Nanobase", href: "/data-tools/nanobase" },
@@ -63,7 +64,7 @@ export default function DataToolsPage() {
       <section className="section">
         <div className="container hero-media">
           <Image
-            src="/references/downloads-tools.png"
+            src={withBasePath("/references/downloads-tools.png")}
             alt="Reference screenshot for downloads and tools layout"
             width={1162}
             height={768}
